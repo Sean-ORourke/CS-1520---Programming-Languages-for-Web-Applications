@@ -1,15 +1,52 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Pitt - help Desk</h1>
     <h3>What way do you want us to contact you?</h3>
-    <form action="">
+    <form action="Index.html">
         <input type="radio" id="By_phone" name="contact_type_group" value="phone">
-        <label for="phone">By phone</label>
+        <label for="phone">By phone</label><br>
+        <input type="radio" id="Email" name="contact_type_group" value="email">
+        <label for="email">Email</label><br>
+        <input type="radio" id="Life_Chat" name="contact_type_group" value="life">
+        <label for="life">Life Chat</label><br>
+
+        <h3>Current Issue</h3>
+        <input type="radio" id="Mainframe_is_down" name="issue_type_group" value="service_down">
+        <label for="service_down">Mainframe is down</label><br>
+        <input type="radio" id="Reset_Password" name="issue_type_group" value="password">
+        <label for="password">Reset Password</label><br>
+        <input type="radio" id="Create_a_new_account" name="issue_type_group" value="account">
+        <label for="account">Create a new account</label><br>
+
+        <h3>Best time(s) to reach you</h3>
+
+        <input type="checkbox" id="morning" name="morning" value="morning">
+        <label for="morning">Morning</label><br>
+        <input type="checkbox" id="afternoon" name="afternoon" value="afternoon">
+        <label for="afternoon">Afternoon</label><br>
+        <input type="checkbox" id="evening" name="evening" value="evening">
+        <label for="evening">Evening</label><br><br><br>
+
+        <input type="submit"></input>
     </form>
+
+
+    <h2>Useful Links</h2>
+    <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Help_Desk.html">Help Desk</a></li>
+    </ul>
+
+
 </body>
+
 </html>
