@@ -1,7 +1,7 @@
 /* window size */
 body {
-    min-width: 1060px;
-    background-color: white;
+    min-width: 400px;
+    background-color: lightcoral;
 }
 
 /* top area styling */
@@ -12,20 +12,22 @@ body {
 }
 
 #top_area_div img {
-    float:left;
-    margin: 5px 0px;
+    display: block;
+}
+
+#lupe_img {
+    padding: 5px 5px;
 }
 
 #top_area_div input {
     float:left;
-    margin: 7px 0px 0px 200px;
+    margin: 10px 5px 0px 0px;
     font-size: 20px;
 }
 
 #top_area_inner_div {
     clear:both;
-    float:left;
-    margin: 0px 25px;
+    padding: 20px;
 }
 
 #top_area_inner_div h3 {
@@ -43,9 +45,7 @@ a {
 
 /* 1st horizontal navigation bar */
 #first_horizontal_navigation_bar {
-    clear:both;
-    margin: 20px;
-    list-style-type: none;
+    display: none;
 }
 
 #first_horizontal_navigation_bar li {
@@ -62,7 +62,8 @@ a {
 
 #second_horizontal_navigation_bar li {
     float:left;
-    margin: 0px 10px;
+    width: 40%;
+    margin: 0px 5px;
 }
 
 /* main area */
@@ -73,7 +74,7 @@ a {
 
 #main_area li {
     float:left;
-    width:26%;
+    width:46%;
     margin:20px;
 }
 
