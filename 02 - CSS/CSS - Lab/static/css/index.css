@@ -93,6 +93,7 @@ a {
     float: left;
     /* background-color: rgb(10, 10, 10); */
     width: 15%;
+    height: 100%
 }
 
 #vertical_navigation_bar img {
@@ -152,10 +153,25 @@ a {
 }
 
 #right_div{
-    width: 75%;
+    width: 85%;
     float:right;
 }
 
-#videos {
+#videos_div {
     clear:both;
+    height: 90%;
+}
+
+#videos_div ul {
+    height: 90%;
+}
+
+#videos_div li {
+    float:left;
+    width: 30%;
+    
+}
+
+#videos_div img {
+    width: 95%;
 }
