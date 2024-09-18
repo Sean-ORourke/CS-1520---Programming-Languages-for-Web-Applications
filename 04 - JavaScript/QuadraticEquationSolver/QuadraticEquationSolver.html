@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+
+    <script type="text/javascript">
+
+        // functions defined here
+
+        function getQuadraticCoefficients() {
+            let userInput = prompt("Enter coefficients separated by commas", "2, 5, -3");
+            // "2, 5, -3" one single string
+
+            let coefArrayInStringFormat = userInput.split(",");
+            // ["2", "5", "-3"]
+
+            let coefArrayInNumberFormat = [];
+            for (let i = 0; i < coefArrayInStringFormat.length; i++) {
+                coefArrayInNumberFormat.push(parseFloat(coefArrayInStringFormat[i]));
+            }
+            return coefArrayInNumberFormat;
+        }
+
+        function computeDiscriminant(coeffs) {
+            // b^2 - 4ac
+            let disc = coeffs[1] * coeffs[1] - 4 * coeffs[0] * coeffs[2];
+            return disc;
+        }
+
+        function computeRoots(coeffs, disc) {
+            let roots = [];
+            // (-b - sqrt(disc))/(2a) and (-b + sqrt(disc))/(2a)
+            if (disc < 0) {
+                // do nothing  // empty roots - no real solutions
+            } else if (disc == 0) {
+                // one single root -b / (2a)
+                roots.push(-coeffs[1] / (2 * coeffs[0]));
+            } else {
+                // 2 real roots
+                let root1 = (-coeffs[1] - Math.sqrt(disc)) / (2 * coeffs[0]);
+                let root2 = (-coeffs[1] + Math.sqrt(disc)) / (2 * coeffs[0]);
+                roots.push(root1);
+                roots.push(root2);
+            }
+            return roots;
+        }
+
+        // main driver function: will call all other functions
+
+        function main() {
+            // getting the quadratic coefficients
+            let coefficients = getQuadraticCoefficients();
+            console.log("coefficients: " + coefficients);
+
+            // compute the discriminant
+            let disc = computeDiscriminant(coefficients);
+            console.log("discriminant: " + disc);
+
+            // compute the roots
+            let roots = computeRoots(coefficients, disc);
+            console.log("roots: " + roots);
+
+            // display results
+
+            // create arrays for plotting
+
+            // plotting curve
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        main();
+    </script>
+
+
+</body>
+
+</html>

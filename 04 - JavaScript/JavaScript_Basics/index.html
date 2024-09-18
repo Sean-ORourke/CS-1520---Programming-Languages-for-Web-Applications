@@ -20,7 +20,9 @@
         let r_string = prompt("Enter the sphere radius: ", "5");
         let r = parseFloat(r_string);
         let v = 4/3 * Math.PI * Math.pow(r, 3);
-        console.log("The volume of sphere of radius " + r + " is " + v);
+        let message = "The volume of sphere of radius " + r + " is " + v;
+        console.log(message);
+        document.write(message);
     </script>
 </body>
 </html>
