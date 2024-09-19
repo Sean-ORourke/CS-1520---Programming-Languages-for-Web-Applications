@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadratic Equation Solver</title>
 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <script type="text/javascript">
 
         // functions defined here
@@ -47,6 +49,63 @@
             return roots;
         }
 
+        function displayResults(roots, coeffs) {
+            let equation = `<h2>The quadratic equation ${coeffs[0]}x^2 + ${coeffs[1]}x + ${coeffs[2]} = 0 </h2>`;
+            // let equation = "<h2>The quadratic equation " + coeffs[0] + "x^2" + coeffs[1] + "x" + coeffs[2] + " = 0<h2>";
+            document.write(equation);
+
+            let arraySize = roots.length;
+            if (arraySize == 0) {
+                document.write("has no real roots");
+                console.log("no real roots");
+            } else if (arraySize == 1) {
+                document.write(`<h2>has one single root: ${root[0]}</h2>`);
+                console.log("one single root");
+            } else {
+                document.write(`<h2>has two real roots: ${roots[0]} and ${roots[1]}</h2>`);
+                console.log("two real roots");
+            }
+        }
+
+        // creating x and y arrays
+        function create_XY_arrays(coeffs, range) {
+            let xmin = range[0];
+            let xmax = range[1];
+            let xArray = [];
+            let yArray = [];
+
+
+
+            for (let x = xmin; x <= xmax; x++) {
+                xArray.push(x);
+                let y = coeffs[0] * x * x + coeffs[1] * x + coeffs[2];
+                yArray.push(y);
+            }
+            return [xArray, yArray];
+
+        }
+
+        function plot_curve(plotting_arrays) {
+            let xArray = plotting_arrays[0];
+            let yArray = plotting_arrays[1];
+            // Define Data
+            const data = [{
+                x: xArray,
+                y: yArray,
+                mode: "markers"
+            }];
+
+            // Define Layout
+            const layout = {
+                xaxis: {title: "Square Meters" },
+                yaxis: {title: "Price in Millions" },
+                title: "House Prices vs. Size"
+            };
+
+            // Display using Plotly
+            Plotly.newPlot("myPlot", data, layout);
+        }
+
         // main driver function: will call all other functions
 
         function main() {
@@ -63,10 +122,14 @@
             console.log("roots: " + roots);
 
             // display results
+            displayResults(roots, coefficients);
 
             // create arrays for plotting
+            let plotting_arrays = create_XY_arrays(coefficients, [-10, 5]);
+            console.log(plotting_arrays);
 
             // plotting curve
+            plot_curve(plotting_arrays);
         }
 
     </script>
@@ -75,6 +138,7 @@
 </head>
 
 <body>
+    <div id="myPlot" style="width:100%;max-width:700px"></div> 
     <script type="text/javascript">
 
         main();
