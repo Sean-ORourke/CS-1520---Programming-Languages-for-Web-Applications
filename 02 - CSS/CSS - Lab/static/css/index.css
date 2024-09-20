@@ -169,6 +169,7 @@ a {
 #videos_div li {
     float:left;
     width: 30%;
+    height: 400px;
     
 }
 
