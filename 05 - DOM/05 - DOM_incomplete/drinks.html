@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="static/js/drinks.js"></script>
+    <link rel="stylesheet" href="static/css/drinks.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="page_title">Drinks Inc</h1>
+    <div id="top_area">
+        <div id="top_area_drink_selection">
+            <h3>Drink Selection</h3>
+            <select title="drink_selection" id="drink_selection">
+                <option value="All_Drinks" selected>All drinks</option>
+                <option value="Before_Dinner">Before Dinner</option>
+                <option value="After_Dinner">After Dinner</option>
+                <option value="All_day">All day</option>
+            </select>
+        </div>
+        <div id="top_area_view_type">
+            <input type="radio" id="view_type_all_drinks" name="view_mode" checked>
+            <label for="view_type_all_drinks">view all drinks</label>
+            <input type="radio" id="view_type_one_drink" name="view_mode">
+            <label for="view_type_one_drink">view one drink</label>
+        </div>
+        <div id="top_area_search">
+            <input type="text" id="search_input" placeholder="Search for a drink">
+            <img id="search_button" src="resources/images/loupe.png" alt="">
+        </div>
+    </div>
+    <ul id="view_all_requested_drinks_ul">
+        <li>
+            <img src="resources/images/alexander.jpg" alt="">
+            <h3>Alexander</h3>
+        </li>
+        <li>
+            <img src="resources/images/americano.jpg" alt="">
+            <h3>Americano</h3>
+        </li>
+        <li>
+            <img src="resources/images/angel_face.jpg" alt="">
+            <h3>Angel Face</h3>
+        </li>
+        <li>
+            <img src="resources/images/bacardi.jpg" alt="">
+            <h3>Bacardi</h3>
+        </li>
+        <li>
+            <img src="resources/images/between_sheets.jpg" alt="">
+            <h3>Between Sheets</h3>
+        </li>
+        <li>
+            <img src="resources/images/casino.jpg" alt="">
+            <h3>Casino</h3>
+        </li>
+        <li>
+            <img src="resources/images/clover_club.jpeg" alt="">
+            <h3>Clover Club</h3>
+        </li>
+        <li>
+            <img src="resources/images/daiquiri.jpg" alt="">
+            <h3>Daiquiri</h3>
+        </li>
+        <li>
+            <img src="resources/images/derby.jpg" alt="">
+            <h3>Derby</h3>
+        </li>
+    </ul>
+    <div id="detailed_drink">
+        <div>
+            <img id="single_drink_image" src="resources/images/alexander.jpg" alt="">
+            <div  id="detailed_drink_info">
+                <h2 id="single_drink_name">Alexander Drink</h2>
+                <h3 id="single_drink_type">Drink Type: Before Dinner</h3>
+                <h3>Ingredients:</h3>
+                <ul id="single_drink_ingredients">
+                    <li>slkdf</li>
+                    <li>slkfsfd</li>
+                    <li>d2rff</li>
+                    <li>sjjklw</li>
+                </ul>
+                <h3>How to Prepare:</h3>
+                <ul>
+                    <li id="single_drink_how_to_prepare">bla bla bla</li>
+                </ul>
+            </div>
+        </div>
+        <div id="arrows">
+            <img id="left_arrow" src="resources/images/left_arrow.png" alt="">
+            <img id="right_arrow" src="resources/images/right_arrow.png" alt="">
+        </div>
+
+    </div>
+</body>
+
+</html>

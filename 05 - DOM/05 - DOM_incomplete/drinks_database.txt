@@ -1,0 +1,59 @@
+name:	ALEXANDER
+image:	alexander.jpg
+type:	After Dinner Cocktail
+ingredients: 3 cl Cognac, 3 cl Créme de Cacao (brown), 	3 cl Fresh cream
+how to prepare:	Shake and strain into a chilled cocktail glass. Sprinkle with fresh ground nutmeg.
+	
+name:	AMERICANO
+image:	Americano.jpg
+type:	Before Dinner Cocktail
+ingredients: 3 cl Campari, 3 cl Red Vermouth, A splash of soda water
+how to prepare:	Mix the ingredients directly in an old-fashioned glass filled with ice-cubes, add a splash of soda water.
+	
+name:	ANGEL FACE
+image:	angel_face.jpg
+type:	All Day Cocktail
+ingredients:	3 cl Calvados, 3 cl Gin, 3 cl Apricot brandy
+how to prepare:	Pour all ingredients into a shaker with ice.
+	
+name:	AVIATION
+image:	aviation.jpg
+type:	All Day Cocktail
+ingredients:	4.5 cl Gin, 1.5 cl Maraschino, 1.5 cl Fresh lemon juice
+how to prepare:	Shake and strain into a chilled cocktail glass.
+	
+name:	BACARDI
+image:	Bacardi.jpg
+type:	Before Dinner Cocktail
+ingredients:	4.5 cl Bacardi Carta Blanca, 2 cl Fresh lime juice,1 cl Grenadine
+how to prepare:	Pour all ingredients into shaker with ice cubes, shake well, strain into chilled cocktail glass.
+	
+name:	BETWEEN THE SHEETS
+image:	between_sheets.jpg
+type:	All Day Cocktail
+ingredients:	3 cl Cognac, 3 cl White Rum, 3 cl Triple Sec, 2 cl Fresh lemon juice
+how to prepare:	Pour all ingredients into shaker with ice cubes, shake, strain into chilled cocktail glass.
+	
+name:	CASINO
+image:	casino.jpg
+type:	All Day Cocktail
+ingredients:	4 cl Old Tom Gin, 1 cl Maraschino, 1 cl Orange Bitters, 1 cl Fresh lemon Juice
+how to prepare:	Pour all ingredients into shaker with ice cubes, shake well. Strain into chilled cocktail glass and gar....
+	
+name:	CLOVER CLUB
+image:	clover_club.jpeg
+type:	All Day Cocktail
+ingredients:	4.5 cl Gin, 1.5 cl Raspberry syrup, 1.5 cl Fresh lemon Juice, Few drops of Egg White
+how to prepare:	Pour all ingredients into cocktail shaker filled with ice. Shake well.
+	
+name:	DAIQUIRI
+image:	daiquiri.jpg
+type:	Before Dinner Cocktail
+ingredients:	4.5 cl White rum, 1.5 cl Simple syrup, 2.5 cl Fresh lime juice
+how to prepare:	Shake and strain into a cocktail glass.
+	
+name:	DERBY
+image:	derby.jpg
+type:	All Day Cocktail
+ingredients:	6 cl Gin, 2 Drops Peach Bitters, 2 Fresh mint leafs
+how to prepare:	Pour all ingredients into a mixing glass with ice. Stir. Strain into a cocktail glass. Garnish with a fresh mint leaves....
