@@ -1,0 +1,219 @@
+<!DOCTYPE html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mortgage calculator</title>
+</head>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<body>
+
+    <div id="monthlyInterestRateAndPrincipalPayments" style="width:35%; margin:auto; float:left;"></div>
+    <div id="monthlyPrincipalValues" style="width:35%; margin-left:40%;"></div>
+    <!-- running the main_driver method -->
+    <script type="text/javascript" >
+
+        main_driver();
+
+        function getLoanInformation() {
+            let loanInformation = [];
+            let userInput = prompt("Enter in your housePrice (no commas in number), downPayment (no commas in number), annualInterestRate (in %), and loanPeriodInYears (no commas in number) separated by commas", "600000.00, 100000.00, 5, 30");
+            let loanInformationString = userInput.split(", ");
+            for (let i = 0; i < loanInformationString.length; i++) {
+                console.log(loanInformationString[i]);
+                loanInformation.push(parseFloat(loanInformationString[i]));
+            }
+
+            return loanInformation;
+        }
+
+        function computeMontlyMortgagePayments(principal_P, montlyInterestRate_r, totalNumberOfPayments_n) {
+            let m = principal_P * (montlyInterestRate_r * Math.pow((1 + montlyInterestRate_r), totalNumberOfPayments_n) / (Math.pow((1 + montlyInterestRate_r), totalNumberOfPayments_n) - 1));
+
+            // number.toLocaleString('en') and number.toFixed(2)
+            //m = m.toFixed(2);
+
+            //document.writeln(m);
+            return m;
+        }
+
+        function displayResults(housePrice, downPayment, principal_P, annualInterestRate, loanPeriodInYears, monthlyMortgagePayments_M, hHIncome) {
+            //let printableHousePrice = housePrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            // printableHousePrice = printableHousePrice.toFixed(2);
+            let printableHousePrice = housePrice.toLocaleString('en-US');
+            let printableDownPayment = downPayment.toLocaleString('en-US');
+            let printableP = principal_P.toLocaleString('en-US');
+            let printableAIR = annualInterestRate.toLocaleString('en-US');
+            console.log("AIR: ", annualInterestRate);
+            let printableLoanPIY = loanPeriodInYears;
+            let printableMMP = monthlyMortgagePayments_M.toFixed(2);
+            let printableHHIncome = hHIncome.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+
+            document.writeln(`<h2>Mortgage Calculator</h2>`);
+
+            document.writeln(`<h5>House Price: $${printableHousePrice}</h5>`);
+            document.writeln(`<h5>Down Payment: $${printableDownPayment}</h5>`);
+            document.writeln(`<h5>Principal: $${printableP}</h5>`);
+            document.writeln(`<h5>Annual Interest Rate: ${printableAIR}%</h5>`);
+            document.writeln(`<h5>Loan Period In Years: ${printableLoanPIY} years</h5>`);
+            document.writeln(`<h5>Monthly Mortage Payments: $${printableMMP} per month</h5>`);
+            document.writeln(`<h5>Minimum Monthly Incoming per House Hold: $${printableHHIncome} per month (30% of the house income)</h5>`);
+            return;
+
+        }
+
+        function calculateHHIncome(monthlyMortgagePayments_M) {
+            return monthlyMortgagePayments_M / 0.3;
+        }
+
+        function plotMortgageCurves(principal_P, monthlyMortgagePayments_M, montlyInterestRate_r, monthlyMortgagePayments_M, totalNumberOfPayments_n) {
+            console.log("plotMortgageCurves()");
+            let plottingArrays = getLoanPaymentValues(principal_P, monthlyMortgagePayments_M, montlyInterestRate_r, monthlyMortgagePayments_M, totalNumberOfPayments_n); // see note #6
+            plotValues(plottingArrays); // see note #7
+            return;
+        }
+
+        function plotValues(plottingArrays) {
+
+            // Define Data
+        const data1 = [{
+            x: plottingArrays[0],
+            y: plottingArrays[1],
+            mode: "markers",
+            name: "Interest Monthly Payment"
+        },
+        {
+            x: plottingArrays[0],
+            y: plottingArrays[2],
+            mode: "markers",
+            name: "Principal Monthly Payment"
+        }
+        ];
+
+        const data2 = [{
+            x: plottingArrays[0],
+            y: plottingArrays[1],
+            mode: "markers",
+            name: "Principal Monthly Payment"
+        },
+        ];
+
+            // const xArray = [50,60,70,80,90,100,110,120,130,140,150];
+            // const yArray = [7,8,8,9,9,9,10,11,14,14,15];
+
+            
+            // Define Layout
+            const layout1 = {
+            xaxis: {range: [0, plottingArrays[0][plottingArrays[0].length - 1]], title: "Number of Months"},
+            yaxis: {range: [0, plottingArrays[2][plottingArrays[2].length - 1]], title: "Dollars($)"},  
+            showlegend: false,
+            title: "Mortgage Payments"
+            };
+
+            const layout2 = {
+            xaxis: {range: [0, plottingArrays[0][plottingArrays[0].length - 1]], title: "Number of Months"},
+            yaxis: {range: [0, plottingArrays[2][plottingArrays[2].length - 1]], title: "Dollars($)"},  
+            showlegend: false,
+            title: "Mortgage Payments"
+            };
+
+            // Display using Plotly
+            Plotly.newPlot("monthlyInterestRateAndPrincipalPayments", data1, layout1);
+
+            Plotly.newPlot("monthlyPrincipalValues", data2, layout2);
+            
+            return;
+        }
+
+        function getLoanPaymentValues (principal_P, monthlyMortgagePayments_M, montlyInterestRate_r, monthlyMortgagePayments_M, totalNumberOfPayments_n) {
+            
+            console.log("getLoanPaymentValues()");
+            let outstandingPP = principal_P;
+            
+            let paymentNum = [];
+            let monInterest = [];
+            let monPrinc = [];
+            let outPrinc = [];
+            
+            for (let i = 1; i <= totalNumberOfPayments_n; i++) {
+            
+                // • First array: containing the payment number(1, 2, ..., 360)
+                paymentNum.push(i);
+                console.log(paymentNum[paymentNum.length - 1]);
+
+                // • Second array: monthly amount of money that goes towards Interest rate
+                monInterest.push(outstandingPP * montlyInterestRate_r);
+                console.log(monInterest[monInterest.length - 1]);
+
+                // • Third array: monthly amount of money that goes towards the principal
+                monPrinc.push(monthlyMortgagePayments_M - monInterest[monInterest.length - 1]);
+                console.log(monPrinc[monPrinc.length - 1]);
+
+                // • Fourth array: monthly outstanding principal value(how much you still own the lender)
+                outstandingPP = outstandingPP - monPrinc[monPrinc.length - 1];
+                outPrinc.push(outstandingPP);
+                console.log(outPrinc[outPrinc.length - 1]);
+
+                
+            }
+
+            return [paymentNum, monInterest, monPrinc, outPrinc];
+        }
+
+        function main_driver() {
+            let loanInformation = getLoanInformation(); // See Note #1
+            let housePrice = loanInformation[0];
+            let downPayment = loanInformation[1];
+            let annualInterestRate = loanInformation[2];
+            console.log("AIR: ", annualInterestRate);
+            let loanPeriodInYears = loanInformation[3];
+            console.log(1);
+
+            // document.writeln(loanInformation);
+            // derived data from loan information
+            let principal_P = housePrice - downPayment; // See note #2
+            let montlyInterestRate_r = (annualInterestRate / 100) / 12; // See note #3;
+            let totalNumberOfPayments_n = loanPeriodInYears * 12;// your code here // See note #4
+            console.log(2);
+
+            //document.writeln("Principal ", principal_P, " Monthly interest rate ", montlyInterestRate_r, " total number of payments ", totalNumberOfPayments_n);
+
+            let monthlyMortgagePayments_M = computeMontlyMortgagePayments(principal_P, montlyInterestRate_r, totalNumberOfPayments_n);
+            let hHIncome = calculateHHIncome(monthlyMortgagePayments_M);
+
+            console.log("AIR: ", annualInterestRate);
+            displayResults(housePrice, downPayment, principal_P, annualInterestRate, loanPeriodInYears, monthlyMortgagePayments_M, hHIncome); // see note #5
+            plotMortgageCurves(principal_P, monthlyMortgagePayments_M, montlyInterestRate_r, monthlyMortgagePayments_M, totalNumberOfPayments_n);
+        }
+
+        
+    </script>
+</body>
+
+</html>
+
+<!-- // Notes:
+// 1) getLoanInformation method requires no input and it returns an array of values
+// containing:
+// • house price
+// • down payment
+// • annual interest rate(percentage)
+// • loan period(years)
+// 2) principal value P is the difference between house price and down payment
+// 3) you need to convert annual interest rate to monthly interest rate and make it a
+// fractional number, not a percent one
+// 4) total number of payments is the total number of years multiplied by 12 months
+// 5) You will need to create the method displayResults based on this call, meaning, it
+// has some input variables, it does not return anything, but display the mortgage
+// information as shown in Figure
+// 6) The function getLoanPaymentValues shall return an array of 4 arrays:
+// • First array: containing the payment number(1, 2, ..., 360)
+// • Second array: monthly amount of money that goes towards Interest rate
+// • Third array: monthly amount of money that goes towards the principal
+// • Fourth array: monthly outstanding principal value(how much you still own the lender
+// 7) The function plotValues uses the arrays discussed in Note #6 and the Plotly library
+// (as discussed in class) to plot the curves shown in Figure 3. To plot two curves in
+// a single plot area, you can do as shown below: -->
