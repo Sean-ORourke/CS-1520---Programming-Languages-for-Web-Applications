@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+
+select {
+    display: block;
+}
+
+#right-div {
+    float: left;
+    width: 100%;
+}
+
+#right-div select {
+    margin-bottom: 40px;
+}
+
+#left-div {
+    display: block;
+    width: 100%;
+}
+
+#left-div img {
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+#left-div label {
+    display: block;
+
+    text-align: center;
+}
+
+#left-div textarea {
+    width: 90%;
+}

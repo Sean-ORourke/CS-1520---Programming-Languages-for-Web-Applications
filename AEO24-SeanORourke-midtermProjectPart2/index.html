@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./static/js/cars.js"></script>
+    <link rel="stylesheet" media='screen and (max-width: 630px)' href="./static/css/phone.css" />
+    <link rel="stylesheet" media='screen and (min-width: 631px)' href="./static/css/laptop.css" />
+    <title>Seán's Midterm Project</title>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Car Dealer App</h1>
+        <hr>
+
+    </div>
+
+    <div id="right-div">
+        <label for="cars">Car Type</label>
+        <select id="cars" name="cars">
+            <option value="Ferarri">Ferarri</option>
+            <option value="Lamborghini">Lamborghini</option>
+            <option value="Mustang">Mustang</option>
+        </select>
+
+        <label for="colors">Car Color</label>
+        <select id="colors" name="colors">
+            <option value="Red">Red</option>
+            <option value="White">White</option>
+            <option value="Yellow">Yellow</option>
+        </select>
+
+        <p>Insurance Plan:</p>
+
+        <input type="radio" id="noins" name="color" value="noins">
+        <label for="noins">No Insurance</label><br>
+
+        <input type="radio" id="3yearins" name="color" value="3yearins" checked>
+        <label for="3yearins">Three Year Insurance</label><br>
+
+    </div>
+
+    <div id="left-div">
+        <img src="./yellowFerrarri.png" alt="yellowFerrari" />
+
+
+        <label for="comments">Description</label><br>
+        <textarea id="comments" name="comments" rows="10" cols="53" value>
+Car: Ferrari
+Description: Ferraris are what dreams are made of. Fast, sexy, and highly exclusive, these Italian supercars push the boundaries of performance and cause a stir wherever they go. The sensually styled Roma coupe is the most accessible in terms of price, but even it is far too expensive for most people.
+Selected color: yellow
+Basic Price: 100,000
+        </textarea><br>
+    </div>
+
+
+</body>
+
+</html>
