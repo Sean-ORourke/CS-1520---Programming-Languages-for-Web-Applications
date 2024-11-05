@@ -11,37 +11,54 @@
 <body>
     <h2 id="title"> HTTP Requests - JavaScript </h2>
     <fieldset>
-        <legend> View All Blogs </legend>
-        <button type="button" id="viewAllBlogEntriesButton"> View all blog entries </button>
+        <legend> View All Smartphones </legend>
+        <button type="button" id="viewAllBlogEntriesButton"> View all Smartphone entries </button>
         <br>        
     </fieldset>
 
     <fieldset>
-        <legend> View details of a single Blog </legend>
-        <button type="button" id="getOneBlogEntryButton"> View Blog # </button>
-        <input  type="text"   id="blogNumberTextInput"   placeholder="Enter blog number...">
+        <legend> View details of a single smartphone </legend>
+        <button type="button" id="getOneBlogEntryButton"> View details of a single smartphone </button>
+        <input  type="text"   id="blogNumberTextInput"   placeholder="Enter Smartphone ID number...">
         <br>
     </fieldset>
 
     <fieldset>
-        <legend> Add a new Blog </legend>
-        <button type="button" id="addNewBlogButton"> Add new Blog </button> 
-        <input  type="text"   id="insertNewBlogTitleTextInput" placeholder="Enter Title...">
-        <input  type="text"   id="insertNewBlogAuthorTextInput" placeholder="Enter Author...">
-        <input  type="text"   id="insertNewBlogArticleTextInput" placeholder="Enter content..."><br>
+        <legend> Add a new Smartphone </legend>
+        <button type="button" id="addNewBlogButton"> Add a new Smartphone </button> 
+        <ul>
+            <li><input  type="text"   id="insertNewBrandTextInput" placeholder="Enter Brand..."></li>
+            <li><input  type="text"   id="insertNewPriceTextInput" placeholder="Enter Price..."></li>
+            <li><input  type="text"   id="insertNewScreenSizeTextInput" placeholder="Enter Screen Size..."></li>
+            <li><input  type="text"   id="insertNewPixelsTextInput" placeholder="Enter Pixels..."></li>
+            <li><input  type="text"   id="insertNewScreenResolutionTextInput" placeholder="Enter Screen Resolution..."></li>
+            <li><input  type="text"   id="insertNewStorageTextInput" placeholder="Enter Storage..."></li>
+            <li><input  type="text"   id="insertNewRAMSizeTextInput" placeholder="Enter RAM Size..."></li>
+            <li><input  type="text"   id="insertNewBatteryCapacityTextInput" placeholder="Enter Battery Capacity..."></li>
+            <li><input  type="text"   id="insertNewWeightTextInput" placeholder="Enter Weight..."></li>
+        </ul>
     </fieldset>
 
     <fieldset>
-        <legend> Update an existing Blog </legend>
-        <button type="button" id="updateExistingBlogButton"> Update Blog </button> 
-        <input  type="text"   id="updateExistingBlogNumberTextInput" placeholder="Enter Blog Number..."><br>
-        <input  type="text"   id="updateExistingBlogTitleTextInput" placeholder="Enter Title...">
-        <input  type="text"   id="updateExistingBlogAuthorTextInput" placeholder="Enter Author...">
-        <input  type="text"   id="updateExistingBlogArticleTextInput" placeholder="Enter content..."><br>
+        <legend> Update an existing Smartphone </legend>
+        <button type="button" id="updateExistingBlogButton"> Update Existing Smartphone </button> 
+
+        <ul>
+            <li><input  type="text"   id="updateExistingSmartphoneIDTextInput" placeholder="Enter Smartphone ID..."></li>
+            <li><input  type="text"   id="updateExistingBrandTextInput" placeholder="Enter Brand..."></li>
+            <li><input  type="text"   id="updateExistingPriceTextInput" placeholder="Enter Price..."></li>
+            <li><input  type="text"   id="updateExistingScreenSizeTextInput" placeholder="Enter Screen Size..."></li>
+            <li><input  type="text"   id="updateExistingPixelsTextInput" placeholder="Enter Pixels..."></li>
+            <li><input  type="text"   id="updateExistingScreenResolutionTextInput" placeholder="Enter Screen Resolution..."></li>
+            <li><input  type="text"   id="updateExistingStorageTextInput" placeholder="Enter Storage..."></li>
+            <li><input  type="text"   id="updateExistingRAMSizeTextInput" placeholder="Enter RAM Size..."></li>
+            <li><input  type="text"   id="updateExistingBatteryCapacityTextInput" placeholder="Enter Battery Capacity..."></li>
+            <li><input  type="text"   id="updateExistingWeightTextInput" placeholder="Enter Weight..."></li>
+        </ul>
     </fieldset>
 
     <fieldset>
-        <legend> Deleting an existing Blog </legend>
+        <legend> Deleting an existing Smartphone </legend>
         <button type="button" id="deleteExistingBlogButton"> Delete Blog </button> 
         <input  type="text"   id="deleteExistingBlogNumberTextInput" placeholder="Enter Blog Number..."><br>
     </fieldset>
@@ -49,7 +66,7 @@
     <!-- add fieldset for displaying output from http requests -->
     <!-- ADD YOUR CODE HERE -->
     <fieldset>
-        <legend> Server Response </legend>
+        <legend> Response Display </legend>
         <div id="displayDivId">
             
         </div>

@@ -1,70 +1,52 @@
 {
   "blogs": [
     {
-      "title": "aaaaa",
-      "article": "ccccc",
-      "author": "bbbb",
-      "id": "1"
+      "Brand": "Samsung Galaxy A70",
+      "Price": "$305.00",
+      "Screen": "6.7",
+      "Pixels": "1080 x 2400",
+      "Resolution": "393 PPI",
+      "Storage": "128 GB",
+      "Ram": "6 GB",
+      "Battery": "4500 mAh",
+      "Weight": "6.46 ounces",
+      "id": 1
     },
     {
-      "title": "Guava",
-      "article": "Brazil is the world's largest producer of guavas ( goiabain Portuguese), even though it is geographically very wide-spread and popular in tropical regions around the globe, from Mexico to South Africa and from India to Hawaii. The guava tree itself (Genus:Psidium) originated somewhere between Mexico and Northern South America, but it has been cultivated since pre-history and has spread so far that its origins are lost in time.",
-      "author": "Mr. Agronomo",
-      "id": "2"
+      "Brand": "OnePlus 71 pro",
+      "Price": "$459.00",
+      "Screen": "6.67 inches",
+      "Pixels": "1440 x 3120",
+      "Resolution": "515 PPi",
+      "Storage": "256 GB",
+      "Ram": "8 GB",
+      "Battery": "4085 mAh",
+      "Weight": "7.27 ounces",
+      "id": 2
     },
     {
-      "title": "Soap Operas",
-      "author": "Miss Telenovela",
-      "article": "Brazilian novelas (soap operas) play a central role in Brazilian media and are a focal point in everyday conversation. Their popularity is reflected in the numbers; Avenida Brasil, one of the most popular novelas, earned approximately $1 billion in revenue. From the first novela, Sua Vida Me Pertence (Your Life Belongs To Me) in 1951, their popularity has snowballed. We explore the seven most popular novelas throughout Brazilian novela history.",
-      "id": "3"
+      "Brand": "Apple iPhone XR",
+      "Price": "$168.98",
+      "Screen": "6.1 inches",
+      "Pixels": "828 x 1792",
+      "Resolution": "324 PPI",
+      "Storage": "64 GB",
+      "Ram": "3 GB",
+      "Battery": "2942 mAh",
+      "Weight": "6.84 ounces",
+      "id": 3
     },
     {
-      "title": "Brazilian Samba",
-      "author": "Mr. Sambista",
-      "article": "samba, ballroom dance of Brazilian origin, popularized in western Europe and the United States in the early 1940s. Characterized by simple forward and backward steps and tilting, rocking body movements, it is danced to music in 4/4 time with syncopated rhythm.",
-      "id": "4"
-    },
-    {
-      "title": "Best Soups",
-      "author": "Maria Donato Ferreira",
-      "article": "the best soups can be found at Maria's kitchen",
-      "id": "5"
-    },
-    {
-      "id": "6",
-      "title": "asd",
-      "author": "aasssss",
-      "article": "ddddddd"
-    },
-    {
-      "id": "7",
-      "title": "sssssss",
-      "author": "ssddddd",
-      "article": "vvvvv"
-    },
-    {
-      "id": "8",
-      "title": "hello",
-      "author": "hi",
-      "article": "nope"
-    },
-    {
-      "id": "9",
-      "title": "what",
-      "author": "why",
-      "article": "how"
-    },
-    {
-      "id": "10",
-      "title": "fghjkl",
-      "author": "sghjkl",
-      "article": "ghjkl;"
-    },
-    {
-      "id": "382e",
-      "title": "hello",
-      "author": "hi",
-      "article": "nope"
+      "Brand": "Samsung Galaxy A11",
+      "Price": "$80.00",
+      "Screen": "6.4 inches",
+      "Pixels": "720 x 1560",
+      "Resolution": "268 PPI",
+      "Storage": "32 GB",
+      "Ram": "2 GB",
+      "Battery": "4000 mAh",
+      "Weight": "6.24 ounces",
+      "id": 4
     }
   ],
   "info": {

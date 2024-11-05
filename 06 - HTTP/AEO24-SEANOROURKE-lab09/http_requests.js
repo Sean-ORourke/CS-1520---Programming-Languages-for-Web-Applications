@@ -1,6 +1,6 @@
 window.addEventListener("load", addEventListeners);
 
-var blogURL = new URL("http://localhost:8000/blogs");
+var smartphoneURL = new URL("http://localhost:8000/blogs");
 
 function addEventListeners() {
     let viewAllBlogsButton = document.getElementById("viewAllBlogEntriesButton");
@@ -22,7 +22,7 @@ function addEventListeners() {
 
 async function retrieveAndDisplayAllBlogEntries() {
     // issuing an HTTP Get request to get all the blogs
-    let blogs = await httpGetRequest(blogURL);
+    let blogs = await httpGetRequest(smartphoneURL);
 
     // cleaning up the output display for the new data
     let outputWindow = document.getElementById("displayDivId");
@@ -38,11 +38,11 @@ async function retrieveAndDisplayAllBlogEntries() {
         //    h2  title
         let titleElement = document.createElement("h2");
         // titleElement.innerText = blod.id + " - " + blog.title;
-        titleElement.innerText = `${blog.id} - ${blog.title}`;
+        titleElement.innerText = `${blog.id} - ${blog.Brand}`;
 
         //    h3  author
         let authorElement = document.createElement("h3");
-        authorElement.innerText = `by ${blog.author}`;
+        authorElement.innerText = `${blog.Price}`;
 
         // append h2 and h3 in the div
         divElement.append(titleElement, authorElement);
@@ -59,26 +59,26 @@ async function retrieveAndDisplayOneBlogEntry() {
     let oneBlogNumber = oneBlogNumberElement.value;
 
     // issuing an HTTP Get Request with "/blogNumber" added to the blogURL
-    let blog = await httpGetRequest(`${blogURL}/${oneBlogNumber}`);
+    let blog = await httpGetRequest(`${smartphoneURL}/${oneBlogNumber}`);
 
     // div
     let divElement = document.createElement("div");
 
     //    h2  title
-    let titleElement = document.createElement("h2");
+    let titleElement = document.createElement("p");
     // titleElement.innerText = blod.id + " - " + blog.title;
-    titleElement.innerText = `${blog.id} - ${blog.title}`;
+    titleElement.innerText = `${blog.id} - ${blog.Brand}`;
 
     //    h3  author
     let authorElement = document.createElement("h3");
-    authorElement.innerText = `by ${blog.author}`;
+    authorElement.innerText = `${blog.Price}`;
 
     // creating the article text
     let articleElement = document.createElement("p");
-    articleElement.innerText = blog.article;
+    articleElement.innerText = `${blog.Price}\n\n${blog.Screen}\n\n${blog.Pixels}\n\n${blog.Resolution}\n\n${blog.Storage}\n\n${blog.Ram}\n\n${blog.Battery}\n\n${blog.Weight}`;
 
     // appending the elements into the temp div
-    divElement.append(titleElement, authorElement, articleElement);
+    divElement.append(titleElement, articleElement);
 
     // appending the divElement to the DOM
     let outputWindow = document.getElementById("displayDivId");
@@ -91,29 +91,48 @@ async function retrieveAndDisplayOneBlogEntry() {
 
 async function addOneBlogEntry() {
     // getting a hold on the blog elements title, author, and article from the page
-    let titleElement = document.getElementById("insertNewBlogTitleTextInput");
-    let authorElement = document.getElementById("insertNewBlogAuthorTextInput");
-    let articleElement = document.getElementById("insertNewBlogArticleTextInput");
+    
+    let brandElement = document.getElementById("insertNewBrandTextInput");
+    let priceElement = document.getElementById("insertNewPriceTextInput");
+    let screenSizeElement = document.getElementById("insertNewScreenSizeTextInput");
+    let pixelsElement = document.getElementById("insertNewPixelsTextInput");
+    let screenResolutionElement = document.getElementById("insertNewScreenResolutionTextInput");
+    let storageElement = document.getElementById("insertNewStorageTextInput");
+    let ramSizeElement = document.getElementById("insertNewRAMSizeTextInput");
+    let batteryCapacityElement = document.getElementById("insertNewBatteryCapacityTextInput");
+    let weightElement = document.getElementById("insertNewWeightTextInput");
 
     // getting a hold in their values
-    let title = titleElement.value;
-    let author = authorElement.value;
-    let article = articleElement.value;
+    let brand = brandElement.value;
+    let price = priceElement.value;
+    let screen = screenSizeElement.value;
+    let pixels = pixelsElement.value;
+    let resolution = screenResolutionElement.value;
+    let storage = storageElement.value;
+    let ram = ramSizeElement.value;
+    let battery = batteryCapacityElement.value;
+    let weight = weightElement.value;
 
     // creating a blog object
     let newBlog = {
-        "title": title,
-        "author": author,
-        "article": article
+        "Brand": brand,
+        "Price": price,
+        "Screen": screen,
+        "Pixels": pixels,
+        "Resolution": resolution,
+        "Storage": storage,
+        "Ram": ram,
+        "Battery": battery,
+        "Weight": weight
     }
 
     // issuing an HTTP Post Request
-    await httpPostRequest(blogURL, newBlog);
+    await httpPostRequest(smartphoneURL, newBlog);
 
     // emptying the display area
-    titleElement.value = "";
-    authorElement.value = "";
-    articleElement.value = "";
+    brandElement.value = "";
+    priceElement.value = "";
+    screenSizeElement.value = "";
 
     let outputWindow = document.getElementById("displayDivId");
     outputWindow.innerHTML = "";
@@ -122,38 +141,70 @@ async function addOneBlogEntry() {
 
 async function updateExistingBlog() {
     // getting a hold on the blog number to be updated
-    let blogNumberElement = document.getElementById("updateExistingBlogNumberTextInput");
-    let titleElement = document.getElementById("updateExistingBlogTitleTextInput");
-    let authorElement = document.getElementById("updateExistingBlogAuthorTextInput");
-    let articleElement = document.getElementById("updateExistingBlogArticleTextInput");
+    let smartphoneIDElement = document.getElementById("updateExistingSmartphoneIDTextInput");
+    let brandElement = document.getElementById("updateExistingBrandTextInput");
+    let priceElement = document.getElementById("updateExistingPriceTextInput");
+    let screenSizeElement = document.getElementById("updateExistingScreenSizeTextInput");
+    let pixelsElement = document.getElementById("updateExistingPixelsTextInput");
+    let screenResolutionElement = document.getElementById("updateExistingScreenResolutionTextInput");
+    let storageElement = document.getElementById("updateExistingStorageTextInput");
+    let ramSizeElement = document.getElementById("updateExistingRAMSizeTextInput");
+    let batteryCapacityElement = document.getElementById("updateExistingBatteryCapacityTextInput");
+    let weightElement = document.getElementById("updateExistingWeightTextInput");
 
     // getting a hold in their values
-    let blogNumber = blogNumberElement.value;
-    let title = titleElement.value;
-    let author = authorElement.value;
-    let article = articleElement.value;
+    let idNumber = smartphoneIDElement.value;
+    let brand = brandElement.value;
+    let price = priceElement.value;
+    let screenSize = screenSizeElement.value;
+    let pixels = pixelsElement.value;
+    let screenResolution = screenResolutionElement.value;
+    let storage = storageElement.value;
+    let ramSize = ramSizeElement.value;
+    let batteryCapacity = batteryCapacityElement.value;
+    let weight = weightElement.value;
 
     // getting the fields that need to be updated
     let updateFields = {};
-    if (title != "") {
-        updateFields["title"] = title;
+    if (brand != "") {
+        updateFields["Brand"] = brand;
     }
-    if (author != "") {
-        updateFields["author"] = author;
+    if (price != "") {
+        updateFields["Price"] = price;
     }
-    if (article != "") {
-        updateFields["article"] = article;
+    if (screenSize != "") {
+        updateFields["Screen"] = screenSize;
+    }
+    if (pixels != "") {
+        updateFields["Pixels"] = pixels;
+    }
+    if (screenResolution != "") {
+        updateFields["Resolution"] = screenResolution;
+    }
+    if (storage != "") {
+        updateFields["Storage"] = storage;
+    }
+    if (ramSize != "") {
+        updateFields["Ram"] = ramSize;
+    }
+    if (batteryCapacity != "") {
+        updateFields["Battery"] = batteryCapacity;
+    }
+    if (weight != "") {
+        updateFields["Weight"] = weight;
     }
 
+
+
     //issuing patch request
-    await httpPatchRequest(`${blogURL}/${blogNumber}`, updateFields);
+    await httpPatchRequest(`${smartphoneURL}/${idNumber}`, updateFields);
 
 
     // cleaning up the input fields
-    blogNumberElement.value = "";
-    titleElement.value = "";
-    authorElement.value = "";
-    articleElement.value = "";
+    smartphoneIDElement.value = "";
+    brandElement.value = "";
+    priceElement.value = "";
+    screenSize.value = "";
 
     let outputWindow = document.getElementById("displayDivId");
     outputWindow.innerHTML = "";
@@ -165,7 +216,7 @@ async function deleteExistingBlog() {
     let blogNumber = blogNumberElement.value;
 
     // issuing a delete request for that given blog number
-    httpDeleteRequest(`${blogURL}/${blogNumber}`);
+    httpDeleteRequest(`${smartphoneURL}/${blogNumber}`);
     // emptying the display area
     blogNumberElement.value = "";
     let outputWindow = document.getElementById("displayDivId");
