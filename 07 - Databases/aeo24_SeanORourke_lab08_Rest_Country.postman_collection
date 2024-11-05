@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "65606b1c-8fb0-404f-979b-56f65807a601",
+		"name": "Rest_Country",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39100616"
+	},
+	"item": [
+		{
+			"name": "All Countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/all",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Canada Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/name/Canada",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"name",
+						"Canada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Countries using Dollar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/currency/dollar",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"currency",
+						"dollar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Countries using Portuguese",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/lang/Portuguese",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"lang",
+						"Portuguese"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Countries in South America",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/region/South America",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"region",
+						"South America"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Has Capital Kinshasa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/capital/Kinshasa",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"capital",
+						"Kinshasa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
