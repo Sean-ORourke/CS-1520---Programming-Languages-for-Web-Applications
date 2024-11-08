@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/static/js/quiz.js"></script>
+    <link rel="stylesheet" href="/static/css/quiz.css">
+    <link rel="icon" href="./resources/favicon.png" type="image/x-icon">
+    <title>Quiz App</title>
+</head>
+<body>
+    <h1>Quiz App </h1>
+    <div id="quiz-container">
+        <h2 id="question"></h2>
+        <div id="options"></div>
+    </div>
+    <button class="button" id="button-1">Next</button>
+    <button class="button" id="button-2"> Restart Quiz </button>
+    <label for="student_name" id="label_for_student_name">Student Name: </label>
+    <input id="student_name" type="text" >
+    <div id="result-container" class="hidden"></div>
+    <button class="button" id="button-3"> Clear Results from Web Storage </button>
+    <button class="button" id="button-4"> Show students scores </button>
+    <textarea id="results_text_area" rows="10" cols="50"></textarea>
+</body>
+</html>
