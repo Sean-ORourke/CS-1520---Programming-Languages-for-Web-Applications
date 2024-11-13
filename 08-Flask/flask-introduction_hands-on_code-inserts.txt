@@ -1,0 +1,327 @@
+Hands-on: Introduction to Flask App
+
+1. Check if you have python installed in your computer
+•	Go to a terminal window and type:
+        python –version (Windows) or 
+        python3 --version (Mac)
+•	If not installed or if you have an old version of Python (2), then (re)install it
+        www.python.org/downloads. Use customize installation!
+
+2. Create a new directory to host our VS Code project
+    08 - Flask
+
+3. From a terminal window, run the VS Code in that given directory
+
+4. Installing pip via VS Code terminal window
+    python.exe -m pip install --upgrade pip
+
+5. Creating a virtual environment
+    from within VS Code terminal window type:
+        python -m venv venv
+
+6. Activating the virtual environment
+    a) In Mac OS: source venv/bin/activate
+    b) In Windows: .\venv\Scripts\activate
+        
+    Note: check if your terminal command prompt has the virtual 
+          environment name in parenthesis(venv)
+          e.g.: (venv) PS C:\Users\paulo\Documents\CS-1520\Fall_2024\08 - Flas
+
+7. Installing Flask library
+    pip install flask
+
+8. To save the current environment configuration
+    a) save the current configuration:
+        pip freeze > requirements.txt
+    b) check if a file named requirements.txt has been created in your project directory
+    c) open this file and look at its contents
+
+9. To share your environment with someone:
+    pip install -r requirements.txt
+
+10. Creating our first Flask web application
+    a) Create a file main_app.py in the VS Code project
+    b) add the following code into that file
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World - version 1"
+
+if __name__ == "__main__":
+    app.run()
+
+11. Running the flask application
+    a) double check that your virtual environment is on. If not, use step 5 to activate the virtual environment
+    b) In the terminal window, type "python main_app.py"
+
+       You should see the following message in the terminal window:
+       running on http://127.0.0.1:5000/ (Press CTRL+C)
+
+    c) open your web browser and check if it displays the message "Hello World - version 1"
+
+12. Adding endpoints to your main application
+    a) copy the following code into the main_app.ppy
+
+@app.route("/")
+def hello():
+    return "Hello world - version 2"
+
+@app.route("/foo")
+def foo_controller():
+    return "<h1>This is the foo page</h1><img src='https://media.istockphoto.com/id/1349297974/photo/multi-ethnic-group-of-latin-american-college-students-smiling.jpg?s=1024x1024&w=is&k=20&c=6OJcxH8z1jE8Yp_PaJmqoBVW-IOksNFzbxXkCYSLDJI='>"
+
+@app.route("/bar")
+def bar_controller():
+    return "<h2>this is the bar page</h2><p> This is a paragraph </p>"
+
+    b) run your application and visit all endpoints from your web browser
+
+13. Returning a whole html page from an endpoint 
+    a) Replace the function in the /bar route with:
+
+@app.route("/bar")
+def bar_controller():
+    return """<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Info</title>
+</head>
+<body>
+    <h1>Head First Design Patterns:</h1>
+    <h2>A Brain-Friendly Guide</h2>
+    <img src="https://m.media-amazon.com/images/I/91bobQSPQrL._SL1500_.jpg" width="40%" alt="">
+    <p style="width:50%">
+        At any given moment, someone struggles with the same software design problems you have. 
+        And, chances are, someone else has already solved your problem. This edition of Head 
+        First Design Patterns―now updated for Java 8―shows you the tried-and-true, road-tested 
+        patterns used by developers to create functional, elegant, reusable, and flexible 
+        software. By the time you finish this book, you’ll be able to take advantage of the 
+        best design practices and experiences of those who have fought the beast of software 
+        design and triumphed.
+    </p>
+
+    <h2>Editorial Reviews</h2>
+    <h3>About the Author</h3>
+    <p style="width:50%">
+        Eric Freeman recently ended nearly a decade as a media company executive, 
+        having held the position of CTO of Disney Online & Disney.com at The Walt 
+        Disney Company. Eric is now devoting his time to WickedlySmart.com and 
+        lives with his wife and young daughter in Austin, TX. He holds a Ph.D. in 
+        Computer Science from Yale University.
+    </p>
+    <p style="width:50%">
+        Elisabeth Robson is co-founder of Wickedly Smart, an education company 
+        devoted to helping customers gain mastery in web technologies. She's 
+        co-author of four bestselling books, Head First Design Patterns, Head 
+        First HTML and CSS, Head First HTML5 Programming, and Head First 
+        JavaScript Programming.
+    </p>
+</body>
+</html> """
+    
+    b) Run app and visit the /bar route
+
+14. Moving the html commands in the /bar to a better place
+    a) create a director named:  templates
+    b) create a new file book_info.html
+    c) move the existing html commands from the /bar route into this new file
+    d) replace the /bar route with the following code:
+
+@app.route("/book_info")
+def book_info():
+    return render_template("book_info.html")
+
+    e) run your app and visit the /book_info endpoint
+
+15. Cleaning up the main_app.py in preparation for the hands-on project:
+    a) Remove all existing endpoints ("/", "foo", "bar", and "/book_info")
+    b) delete book_info.html from the templates directory
+
+16. Create a new HTML page:
+    a) in the templates directory, create the file login.html
+    b) add the following code into it:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic form</title>
+</head>
+<body>
+    <form action="" method="post">
+        Username:  <input type="text" name="user" />
+        <br />
+        Password:  <input type="text" name="pass" />
+        <br />
+        <input type="submit" value="submit" />
+    </form>
+</body>
+</html>
+
+17. Update the root endpoint to your application:
+    a) In the main_app.py, add the following code:
+
+# by default, direct to login
+@app.route("/")
+def default():
+    return redirect(url_for("login_controller"))
+
+18. Creating the login controller endpoint
+    a) In the main_page.py, add the following code
+
+@app.route("/login")
+def login_controller():
+    return render_template("login.html")
+
+    b) run your app, go to the root path and see if you are automatically redirected to the login page
+
+19. Filling in the login fields and hitting the submit button
+    a) Enter the login required information and hitting the submit buttom
+    b) updating the /login route to accept POST requests
+       @app.route("/login", methods=["GET", "POST"])
+    c) update the login route implementation:
+
+    # process HTTP GET requests
+    if request.method == "GET": 
+        return render_template("login.html")
+
+    # process HTTP POST requests
+    elif request.method == "POST":
+        return "login post page"
+
+    d) add "request" in the Flask imports
+    e) run your application, add your info in the login page and click the submit button
+
+20. Getting the username and password from the login GET request page:
+    a) add the following lines just before the line: return "login post page"
+       print(request.form["user], request.form["pass"])
+    b) run your code and check printout in the VS Code terminal window
+
+21. Adding the login logic:
+    a)in the login route (main_app.py) add the following code:
+    elif request.method == "POST":
+        entered_username = request.form["user"]
+        # checking if the user is in the users fake database
+        if entered_username in users:
+            # checking if the right password has been entered
+            entered_password = request.form["pass"]
+            database_password = users[entered_username]
+            if entered_password == database_password:
+                # redirect the user to his/her profile page
+                return redirect(url_for("profile"))
+            else:
+                # wrong password
+                print("Login route: POST Request: wrong password: aborting process...")
+                abort(401)
+        else:
+            # wrong username
+            print("Login route: POST request: user is not registered in the database: Aborting process...")
+            abort(404)
+    b) add this import in the first line:    abort
+    c) We cannot run your application yet. We need to create the profile route (next step)
+
+22. Creating the profile endpoint
+    a) add this new route to your app:
+
+@app.route("/profile")
+def profile():
+    return render_template("current_profile.html")
+
+23. Creating the current_profile.html page
+    a) In the templates directory, create the file current_profile.html
+    b) add the following content into this file 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Name Here</title>
+</head>
+<body>
+    <h1> Welcome back </h1>
+    <a href="">click here to logout</a>
+</body>
+</html>
+
+    c) run your app and try different cases:
+        i) wrong username, any password
+        ii) right username, wrong password
+        iii) right username and password
+
+24. Updating the profile route to accept a username input:
+    a) updating the profile route implementation to display the username in the profile page
+        i) In the profile router (main_app.py), update the route definition and function signature:
+            @app.route("/profile/<username>")
+            def profile(username):
+    b) updating the current_profile.html file, to have a Jinja2 variable for username
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ username }}</title>
+</head>
+<body>
+    <h1> Welcome back, {{username}} </h1> 
+    <a href="">click here to logout</a>
+</body>
+</html>
+
+    c) In the profile router (main_app.py), update the render_template call to have username in it
+        return render_template("current_profile.html", username=entered_username)
+    e) run your application with correct username and password and 
+       check if page shows the username in the tab and body areas
+
+25. Updating the profile route implementation to send the link to the logout page:
+    a) In the profile router (main_app.py), update the render_template call to have both:
+       the username and the logout page URK
+        return render_template("current_profile.html", username=entered_username, reference_to_logout_page = url_for("logout"))
+    b) In the profile HTML page, add a Jinja2 variable in the <a href>:
+        <a href="reference_to_logout_page">click here to logout</a>
+    c) before being able to run this code, we need to create the logout route (see next step)
+
+26. Creating the logout endpoint and its associated HTML file
+    a) Add the following endpoint in the main_app.py:
+    
+@app.route("/logout/")
+def unlogger():
+    return render_template("logout.html")
+
+27. Creating the logout.html page:
+    a) In the templates directory, create a logout.html file
+    b) add the following code into it:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Logged out</title>
+    </head>
+    <body>
+        You have successfully been logged out!
+    </body>
+</html>
+
+28. Using the server storage to save user login information:
+    a) add this import: session 
+    b) add this statement after the app = Flask(__name__) line:
+        app.secret_key = "this is a secret key"
+    c) In the login route, add the following line to the existing code:
+        if entered_password == database_password:
+            session["username"] = request.form["user"]  <== this line to save info into the session object
+            return redirect(url_for("profile"))
+    d) add code to verify if user has previously logged in, and if so, skip login process
+        @app.route("/login/", methods=["GET", "POST"])
+        def login_controller():
+            if "username" in session:   <== this line
+                return redirect(url_for("profile", username=session["username"]))   <== this line
+    e) add code in the logout functionality, so we can remove user from server storage
+
+@app.route("/logout/")
+def unlogger():
+    # if logged in, log out, otherwise offer to log in
+    if "username" in session:
+        session.clear()
+        return render_template("logout.html")
+    else:
+        return redirect(url_for("login_controller"))
