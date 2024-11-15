@@ -1,62 +1,42 @@
 Hands-on: Introduction to Flask App
 
 1. Check if you have python installed in your computer
-    a) Go to a terminal window and type:
-
-        python --version (Windows) or 
+•	Go to a terminal window and type:
+        python –version (Windows) or 
         python3 --version (Mac)
-
-    b) If not installed or if you have an old version of Python (2), then (re)install it
-
+•	If not installed or if you have an old version of Python (2), then (re)install it
         www.python.org/downloads. Use customize installation!
 
 2. Create a new directory to host our VS Code project
-
     08 - Flask
 
 3. From a terminal window, run the VS Code in that given directory
 
 4. Installing pip via VS Code terminal window
-
     python.exe -m pip install --upgrade pip
 
 5. Creating a virtual environment
-    a) from within VS Code terminal window type:
-
+    from within VS Code terminal window type:
         python -m venv venv
 
 6. Activating the virtual environment
-    a) type the following command in the VS Code terminal window
-
-        * In Mac OS: source venv/bin/activate
-        * In Windows: .\venv\Scripts\activate  (*)
+    a) In Mac OS: source venv/bin/activate
+    b) In Windows: .\venv\Scripts\activate
         
     Note: check if your terminal command prompt has the virtual 
           environment name in parenthesis(venv)
           e.g.: (venv) PS C:\Users\paulo\Documents\CS-1520\Fall_2024\08 - Flas
 
-    (*) for Windows users, if you get an error message, it probably
-        means that you don't have permission to execute this command
-        as a regular user. Please type this instead:
-
-        run VS code IDE as admin and and put this in terminal: 
-        
-             set-executionpolicy remotesigned
-
 7. Installing Flask library
-
     pip install flask
 
 8. To save the current environment configuration
     a) save the current configuration:
-
         pip freeze > requirements.txt
-
     b) check if a file named requirements.txt has been created in your project directory
     c) open this file and look at its contents
 
 9. To share your environment with someone:
-
     pip install -r requirements.txt
 
 10. Creating our first Flask web application
@@ -143,9 +123,8 @@ def bar_controller():
     </p>
 </body>
 </html> """
-
-    b) set the hello world to version 13
-    c) Run app and visit the /bar route
+    
+    b) Run app and visit the /bar route
 
 14. Moving the html commands in the /bar to a better place
     a) create a director named:  templates
@@ -157,9 +136,7 @@ def bar_controller():
 def book_info():
     return render_template("book_info.html")
 
-    e) add "render_template" in the list of imports (main_page.py)
-    f) set the hello world to version 14
-    g) run your app and visit the /book_info endpoint
+    e) run your app and visit the /book_info endpoint
 
 15. Cleaning up the main_app.py in preparation for the hands-on project:
     a) Remove all existing endpoints ("/", "foo", "bar", and "/book_info")
@@ -188,11 +165,10 @@ def book_info():
 17. Update the root endpoint to your application:
     a) In the main_app.py, add the following code:
 
+# by default, direct to login
 @app.route("/")
 def default():
     return redirect(url_for("login_controller"))
-
-    b) add "redirect" and "url_for" to the list of imports
 
 18. Creating the login controller endpoint
     a) In the main_page.py, add the following code
@@ -204,11 +180,9 @@ def login_controller():
     b) run your app, go to the root path and see if you are automatically redirected to the login page
 
 19. Filling in the login fields and hitting the submit button
-    a) Run your app and, in the login page, enter the login required information and hitting the submit buttom
+    a) Enter the login required information and hitting the submit buttom
     b) updating the /login route to accept POST requests
-
        @app.route("/login", methods=["GET", "POST"])
-
     c) update the login route implementation:
 
     # process HTTP GET requests
@@ -224,18 +198,11 @@ def login_controller():
 
 20. Getting the username and password from the login GET request page:
     a) add the following lines just before the line: return "login post page"
-       print(request.form["user"], request.form["pass"])
-    b) run your code and check the printout in the VS Code terminal window
+       print(request.form["user], request.form["pass"])
+    b) run your code and check printout in the VS Code terminal window
 
 21. Adding the login logic:
-    a) create a fake database for (username, password)
-        i) just after the imports command, add the following line:
-
-# fake users database
-users = {"alice":"qwert", "bob":"asdfg", "charlie":"zxcvb"}
-
-    b) in the login route (main_app.py) add the following code:
-
+    a)in the login route (main_app.py) add the following code:
     elif request.method == "POST":
         entered_username = request.form["user"]
         # checking if the user is in the users fake database
@@ -254,9 +221,8 @@ users = {"alice":"qwert", "bob":"asdfg", "charlie":"zxcvb"}
             # wrong username
             print("Login route: POST request: user is not registered in the database: Aborting process...")
             abort(404)
-
-    c) add "abort" to the list of imports
-    d) We cannot run your application yet. We need to create the profile route (next step)
+    b) add this import in the first line:    abort
+    c) We cannot run your application yet. We need to create the profile route (next step)
 
 22. Creating the profile endpoint
     a) add this new route to your app:
@@ -272,7 +238,7 @@ def profile():
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Name Here</title>
+    <title>Your Name Here</title>
 </head>
 <body>
     <h1> Welcome back </h1>
@@ -288,24 +254,9 @@ def profile():
 24. Updating the profile route to accept a username input:
     a) updating the profile route implementation to display the username in the profile page
         i) In the profile router (main_app.py), update the route definition and function signature:
-
             @app.route("/profile/<username>")
             def profile(username):
-
-    b) in the login route, replace:
-        
-        return render_template("current_profile.html")
-        
-        with
-        
-        return redirect(url_for("profile", username=entered_username))
-
-    c) update the render_template call in the profile route:
-
-        return render_template("current_profile.html", username=username)
-
-    d) updating the current_profile.html file, to have a Jinja2 variable for username
-
+    b) updating the current_profile.html file, to have a Jinja2 variable for username
 <!DOCTYPE html>
 <html>
 <head>
@@ -317,22 +268,27 @@ def profile():
 </body>
 </html>
 
+    c) In the profile router (main_app.py), update the render_template call to have username in it
+        return render_template("current_profile.html", username=entered_username)
     e) run your application with correct username and password and 
        check if page shows the username in the tab and body areas
 
 25. Updating the profile route implementation to send the link to the logout page:
     a) In the profile router (main_app.py), update the render_template call to have both:
-       the username and the logout page URL
-
-        return render_template("current_profile.html", username=entered_username, reference_to_logout_page = url_for("unlogger"))
-
+       the username and the logout page URK
+        return render_template("current_profile.html", username=entered_username, reference_to_logout_page = url_for("logout"))
     b) In the profile HTML page, add a Jinja2 variable in the <a href>:
-
         <a href="reference_to_logout_page">click here to logout</a>
-
     c) before being able to run this code, we need to create the logout route (see next step)
 
-26. Creating the logout.html page:
+26. Creating the logout endpoint and its associated HTML file
+    a) Add the following endpoint in the main_app.py:
+    
+@app.route("/logout/")
+def unlogger():
+    return render_template("logout.html")
+
+27. Creating the logout.html page:
     a) In the templates directory, create a logout.html file
     b) add the following code into it:
 
@@ -346,34 +302,19 @@ def profile():
     </body>
 </html>
 
-27. Creating the logout endpoint and its associated HTML file
-    a) Add the following endpoint in the main_app.py:
-    
-@app.route("/logout")
-def unlogger():
-    return render_template("logout.html")
-
-    b) run your code and click on the link logout in the profile page
-
 28. Using the server storage to save user login information:
     a) add this import: session 
     b) add this statement after the app = Flask(__name__) line:
-
         app.secret_key = "this is a secret key"
-
     c) In the login route, add the following line to the existing code:
-
         if entered_password == database_password:
             session["username"] = request.form["user"]  <== this line to save info into the session object
             return redirect(url_for("profile"))
-
     d) add code to verify if user has previously logged in, and if so, skip login process
-
         @app.route("/login/", methods=["GET", "POST"])
         def login_controller():
             if "username" in session:   <== this line
                 return redirect(url_for("profile", username=session["username"]))   <== this line
-
     e) add code in the logout functionality, so we can remove user from server storage
 
 @app.route("/logout/")
