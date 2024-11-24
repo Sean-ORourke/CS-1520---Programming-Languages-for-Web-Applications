@@ -3,21 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./static/css/buy_tickets.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buy_tickets.css') }}">
     <title>Ticket Master</title>
 </head>
-
-<script>
-
-    // document.getElementById("buyTicketsForm").addEventListener("submit", );
-
-    // {{ url_for('transaction_page', play_name=play_name) }}
-</script>
 
 <body>
     <h1> Buy tickets for {{play_name}}</h1>
 
-    <img src="PBF - ADD URL_FOR COMMAND HERE" alt="">
+    <img src="{{ url_for('static', filename='images/seating_map.png' ) }}" alt="">
 
 
     <form action="{{refrence_to_transaction_page}}" method="post">
