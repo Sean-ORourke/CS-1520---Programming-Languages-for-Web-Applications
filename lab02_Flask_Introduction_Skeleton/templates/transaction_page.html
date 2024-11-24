@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+</head>
+
+<body>
+    <h1>Transaction completed:</h1>
+
+    <h2>Ticket information:</h2>
+    <ul>
+        <li> Show: {{play_name}} </li>
+        <li> Date: {{transaction.date_and_time}} </li>
+        <li> Seat Zone: {{transaction.zone}} </li>
+        <li> Seat Sector: {{transaction.sector}} </li>
+        <li> Customer Name: {{transaction.customer_name}} </li>
+        <li> Ticket Price: $100.00 </li>
+    </ul>
+
+    <a href="{{reference_to_main_page}}"> Back to the main page</a>
+</body>
+
+</html>
