@@ -188,112 +188,112 @@ function update_order_summary() {
     order_summary_reference.textContent = "";
 
     // go over all the items and add the ones that have order number > 0
-    if(akami_order_reference.textContent != "0") {
+    if (akami_order_reference.textContent != "0") {
         units = akami_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "Akami " + units + " units    $" + price + '\n';
     }
 
-    if(shiromi_order_reference.textContent != "0") {
+    if (shiromi_order_reference.textContent != "0") {
         units = shiromi_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "shiromi " + units + " units    $" + price + '\n';
     }
 
-    if(hikarimono_order_reference.textContent != "0") {
+    if (hikarimono_order_reference.textContent != "0") {
         units = hikarimono_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "hikarimono " + units + " units    $" + price + '\n';
     }
 
-    if(ebi_order_reference.textContent != "0") {
+    if (ebi_order_reference.textContent != "0") {
         units = ebi_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "ebi " + units + " units    $" + price + '\n';
     }
 
-    if(hosomaki_order_reference.textContent != "0") {
+    if (hosomaki_order_reference.textContent != "0") {
         units = hosomaki_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "hosomaki " + units + " units    $" + price + '\n';
     }
 
-    if(temaki_order_reference.textContent != "0") {
+    if (temaki_order_reference.textContent != "0") {
         units = temaki_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "temaki " + units + " units    $" + price + '\n';
     }
 
-    if(oshizushi_order_reference.textContent != "0") {
+    if (oshizushi_order_reference.textContent != "0") {
         units = oshizushi_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "oshizushi " + units + " units    $" + price + '\n';
     }
 
-    if(futomaki_order_reference.textContent != "0") {
+    if (futomaki_order_reference.textContent != "0") {
         units = futomaki_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "futomaki " + units + " units    $" + price + '\n';
     }
 
-    if(ikura_order_reference.textContent != "0") {
+    if (ikura_order_reference.textContent != "0") {
         units = ikura_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "ikura " + units + " units    $" + price + '\n';
     }
 
-    if(tobiko_order_reference.textContent != "0") {
+    if (tobiko_order_reference.textContent != "0") {
         units = tobiko_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "tobiko " + units + " units    $" + price + '\n';
     }
 
-    if(kazunoko_order_reference.textContent != "0") {
+    if (kazunoko_order_reference.textContent != "0") {
         units = kazunoko_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "kazunoko " + units + " units    $" + price + '\n';
     }
 
-    if(uni_order_reference.textContent != "0") {
+    if (uni_order_reference.textContent != "0") {
         units = uni_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "uni " + units + " units    $" + price + '\n';
     }
 
-    if(tokyo_style_order_reference.textContent != "0") {
+    if (tokyo_style_order_reference.textContent != "0") {
         units = tokyo_style_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "tokyo_style " + units + " units    $" + price + '\n';
     }
 
-    if(kansai_style_order_reference.textContent != "0") {
+    if (kansai_style_order_reference.textContent != "0") {
         units = kansai_style_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "kansai_style " + units + " units    $" + price + '\n';
     }
 
-    if(iwakunizushi_order_reference.textContent != "0") {
+    if (iwakunizushi_order_reference.textContent != "0") {
         units = iwakunizushi_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
         order_summary_reference.textContent += "iwakunizushi " + units + " units    $" + price + '\n';
     }
 
-    if(battera_order_reference.textContent != "0") {
+    if (battera_order_reference.textContent != "0") {
         units = battera_order_reference.textContent;
         price = parseInt(units) * 10;
         total_price += price;
@@ -301,4 +301,4 @@ function update_order_summary() {
     }
 
     order_summary_reference.textContent += "\nTotal: $" + total_price;
- }
+}
