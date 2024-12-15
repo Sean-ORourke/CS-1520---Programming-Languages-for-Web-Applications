@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kitchen.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/kitchen.js') }}"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Kitchen - List of current orders</h1>
+    <ul class="customer_order_class">
+        {% for order in orders %}
+        <li class="order_class">
+            <h3>Order Number: {{ order.order_number }}</h3>
+            <h3>Customer: {{ order.customer_name }}</h3>
+            <ul>
+                {% for currentOrder in order.orders %}
+                    <li> {{ currentOrder }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('delete_order', order_id=order.id) }}"> delete order </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
